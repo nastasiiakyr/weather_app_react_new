@@ -1,0 +1,49 @@
+.ForecastDayCard {
+  flex-grow: 1;
+  flex-basis: 108px;
+
+  min-width: 108px;
+  width: auto;
+  padding: 20px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.ForecastDayCard img {
+  display: block;
+  margin: 0 auto;
+  width: 48px;
+  height: 48px;
+}
+
+.ForecastDayCard .temperature {
+  margin: 12px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+}
+
+.ForecastDayCard .temperature .max {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 0.95;
+}
+
+.ForecastDayCard .temperature .min {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  opacity: 0.8;
+}
+
+.ForecastDayCard .day_name {
+  width: 100%;
+  margin: 12px 0 0;
+  text-align: center;
+}

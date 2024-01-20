@@ -1,0 +1,141 @@
+/* Current weather in the city */
+
+.CurrentWeather {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 90px;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* City and date */
+
+.CurrentWeather .current_city_date {
+  width: 60%;
+}
+
+.CurrentWeather .current_date {
+  margin: 4px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 4px;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.CurrentWeather .divider {
+  opacity: 0.3;
+  font-weight: 400;
+}
+
+/* Current temperature */
+
+.CurrentWeather .current_temperature {
+  display: flex;
+  width: 40%;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.CurrentWeather .cur_temp_number {
+  margin-right: 5px;
+}
+
+.CurrentWeather .degrees {
+  padding-top: 4px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.CurrentWeather .celsius {
+  display: block;
+  margin: 0;
+  padding: 3px 0 5px 0;
+  color: #fff;
+}
+
+.CurrentWeather .fahrenheit {
+  color: #fff;
+}
+
+.CurrentWeather .celsius:hover,
+.CurrentWeather .fahrenheit:hover {
+  opacity: 0.95;
+}
+
+.CurrentWeather .focused {
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.CurrentWeather .active {
+  opacity: 0.5;
+}
+
+.CurrentWeather .weather_type {
+  display: flex;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  top: 0;
+}
+
+.CurrentWeather .weather_type_icon {
+  display: block;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  margin: 0 8px 0 0;
+}
+
+.CurrentWeather .weather_type_text {
+  text-align: left;
+  width: fit-content;
+}
+
+.CurrentWeather .weather_type_text h3 {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 3px 0;
+  padding: 0;
+}
+
+.CurrentWeather .weather_type_text span {
+  margin: 0 5px;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.CurrentWeather .vertical_line {
+  margin: 0 5%;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  height: 61px;
+  color: transparent;
+}
+
+.CurrentWeather .temperature {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
