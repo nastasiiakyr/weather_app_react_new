@@ -93,6 +93,7 @@ export default function WeatherIcon(props) {
     if (weatherIcons[props.icon]) {
       props.bg(weatherIcons[props.icon].background);
     }
+    // eslint-disable-next-line
   }, [props.icon]);
 
   useEffect(() => {
