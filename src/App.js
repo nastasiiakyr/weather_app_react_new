@@ -5,7 +5,7 @@ import { CurrentLocation } from "./CurrentLocation";
 import Search from "./Search";
 import FastSearch from "./FastSearch";
 import CurrentWeather from "./CurrentWeather";
-import ForecastDayCard from "./ForecastDayCard";
+import WeatherForecast from "./WeatherForecast";
 import Footer from "./Footer";
 
 import "./App.css";
@@ -48,15 +48,7 @@ export default function App() {
         </div>
 
         {/* Weather forecast */}
-        <div id="forecast">
-          <div className="forecast">
-            <ForecastDayCard />
-            <ForecastDayCard />
-            <ForecastDayCard />
-            <ForecastDayCard />
-            <ForecastDayCard />
-          </div>
-        </div>
+        <WeatherForecast />
 
         {/* Link to the code */}
         <Footer />
