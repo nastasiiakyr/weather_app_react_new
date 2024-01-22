@@ -90,7 +90,7 @@ export default function WeatherIcon(props) {
   };
 
   const handleBackground = useCallback(() => {
-    if (weatherIcons[props.icon]) {
+    if (props.bg && weatherIcons[props.icon]) {
       props.bg(weatherIcons[props.icon].background);
     }
     // eslint-disable-next-line

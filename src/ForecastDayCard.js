@@ -1,22 +1,18 @@
 import React from "react";
 
+import WeatherIcon from "./WeatherIcon";
 import "./ForecastDayCard.css";
 
 export default function ForecastDayCard(props) {
   return (
     <div className="ForecastDayCard">
-      <img src={props.image} alt="" width="48px" />
+    <WeatherIcon icon="01d" condition="Clear"/>
       <div className="temperature">
-        <span className="max" id="temp_forecast_max">
-          {props.temperatureMax}
-        </span>{" "}
-        /{" "}
-        <span className="min" id="temp_forecast_min">
-          {props.temperatureMin}
-        </span>
+        <span className="max">12</span> /{" "}
+        <span className="min">4</span>
       </div>
       <hr />
-      <h3 className="day_name">{props.day}</h3>
+      <h3 className="day_name">Saturday</h3>
     </div>
   );
 }

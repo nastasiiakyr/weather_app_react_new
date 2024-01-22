@@ -50,36 +50,11 @@ export default function App() {
         {/* Weather forecast */}
         <div id="forecast">
           <div className="forecast">
-            <ForecastDayCard
-              image="./img/icon-snow.png"
-              temperatureMax={12}
-              temperatureMin={4}
-              day="Saturday"
-            />
-            <ForecastDayCard
-              image="./img/icon-snow.png"
-              temperatureMax={12}
-              temperatureMin={4}
-              day="Sunday"
-            />
-            <ForecastDayCard
-              image="./img/icon-snow.png"
-              temperatureMax={12}
-              temperatureMin={4}
-              day="Monday"
-            />
-            <ForecastDayCard
-              image="./img/icon-snow.png"
-              temperatureMax={12}
-              temperatureMin={4}
-              day="Tuesday"
-            />
-            <ForecastDayCard
-              image="./img/icon-snow.png"
-              temperatureMax={12}
-              temperatureMin={4}
-              day="Wednesday"
-            />
+            <ForecastDayCard />
+            <ForecastDayCard />
+            <ForecastDayCard />
+            <ForecastDayCard />
+            <ForecastDayCard />
           </div>
         </div>
 
