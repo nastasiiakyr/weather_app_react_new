@@ -12,8 +12,9 @@ import "./App.css";
 
 export default function App() {
   const currentCity = CurrentLocation();
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Odesa");
   const [background, setBackground] = useState("./img/bg_sample.jpg");
+  const [coordinates, setCoordinates] = useState({ lat: null, lon: null });
 
   useEffect(() => {
     currentCity ? setCity(currentCity) : setCity("Odesa");
@@ -27,6 +28,10 @@ export default function App() {
     setBackground(newBackground);
   }
 
+  function handleCoordinates(lat, lon) {
+    setCoordinates({ lat, lon });
+  }
+
   return (
     <div className="App" style={{ backgroundImage: `url(${background})` }}>
       {/* Weater card area */}
@@ -38,17 +43,19 @@ export default function App() {
           style={{ backgroundImage: `url(${background})` }}
         >
           <div className="overlay" />
-
           {/* Search */}
           <Search searchNewCity={handleNewCity} />
           <FastSearch fastSearchCity={handleNewCity} />
-
           {/* Current weather in the chosen city */}
-          <CurrentWeather city={city} bg={handleBackground} />
+          <CurrentWeather
+            city={city}
+            bg={handleBackground}
+            coordinates={handleCoordinates}
+          />
         </div>
 
         {/* Weather forecast */}
-        <WeatherForecast />
+        <WeatherForecast lat={coordinates.lat} lon={coordinates.lon} />
 
         {/* Link to the code */}
         <Footer />

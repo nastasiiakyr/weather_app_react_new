@@ -5,7 +5,6 @@ export function CurrentLocation() {
   const [currentCity, setCurrentCity] = useState(null);
 
   async function getCurrentLocation() {
-    try {
       const position = await new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject);
       });
@@ -19,9 +18,6 @@ export function CurrentLocation() {
       await axios.get(apiUrlCurrent).then(function (response) {
         setCurrentCity(response.data.name);
       });
-    } catch (error) {
-      console.error("Error getting current location:", error);
-    }
   }
 
     getCurrentLocation();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import FormatedDate from "./FormatedDate";
@@ -10,12 +10,22 @@ import "./CurrentWeather.css";
 export default function CurrentWeather(props) {
   const [curWeatherData, setCurWeatherData] = useState({ loaded: false });
 
-  useEffect(() => {
-    let apiKeyWeather = "8cd9be374c7c96c39a9fe73f4bf2f055";
-    let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKeyWeather}&units=metric`;
+   
 
-    axios.get(apiUrlCity).then(handleResponse);
-  }, [props.city]);
+   const fetchData = useCallback(async () => {
+     const apiKeyWeather = "8cd9be374c7c96c39a9fe73f4bf2f055";
+     const apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKeyWeather}&units=metric`;
+
+     const response = await axios.get(apiUrlCity);
+     handleResponse(response);
+     // eslint-disable-next-line
+   }, [props.city]);
+  
+  useEffect(() => {
+    if (props.city) {
+      fetchData();
+    }
+  }, [props.city, fetchData]);
 
   function handleResponse(response) {
     setCurWeatherData({
@@ -28,11 +38,13 @@ export default function CurrentWeather(props) {
       condition: response.data.weather[0].main,
       wind: response.data.wind.speed * 3.6,
     });
+    props.coordinates(response.data.coord.lat, response.data.coord.lon);
   }
 
   function handleBackground(newBackground) {
     props.bg(newBackground);
   }
+
 
   if (curWeatherData.loaded) {
     return (
