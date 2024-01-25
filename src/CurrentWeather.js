@@ -45,6 +45,10 @@ export default function CurrentWeather(props) {
     props.bg(newBackground);
   }
 
+  function handleSystem(newSystem) {
+    props.system(newSystem);
+  }
+
 
   if (curWeatherData.loaded) {
     return (
@@ -81,7 +85,7 @@ export default function CurrentWeather(props) {
 
           <div className="vertical_line">|</div>
 
-          <SwitchTemperature celsius={curWeatherData.temperature} />
+          <SwitchTemperature celsius={curWeatherData.temperature} system={handleSystem} />
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 export default function SwitchTemperature(props) {
   let [system, setSystem] = useState("celsius");
@@ -12,6 +12,15 @@ export default function SwitchTemperature(props) {
     event.preventDefault();
     setSystem("celsius");
   }
+
+  const handleSystem = useCallback(() => {
+    props.system(system);
+    // eslint-disable-next-line
+  }, [system]);
+
+   useEffect(() => {
+     handleSystem();
+   }, [system, handleSystem]);
 
   if (system === "celsius") {
     return (

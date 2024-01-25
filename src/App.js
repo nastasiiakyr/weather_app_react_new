@@ -15,6 +15,7 @@ export default function App() {
   const [city, setCity] = useState("Odesa");
   const [background, setBackground] = useState("./img/bg_sample.jpg");
   const [coordinates, setCoordinates] = useState({ lat: null, lon: null });
+  const [system, setSystem] = useState("celsius");
 
   useEffect(() => {
     currentCity ? setCity(currentCity) : setCity("Odesa");
@@ -30,6 +31,10 @@ export default function App() {
 
   function handleCoordinates(lat, lon) {
     setCoordinates({ lat, lon });
+  }
+
+  function handleSystem(newSystem) {
+    setSystem(newSystem);
   }
 
   return (
@@ -51,11 +56,16 @@ export default function App() {
             city={city}
             bg={handleBackground}
             coordinates={handleCoordinates}
+            system={handleSystem}
           />
         </div>
 
         {/* Weather forecast */}
-        <WeatherForecast lat={coordinates.lat} lon={coordinates.lon} />
+        <WeatherForecast
+          lat={coordinates.lat}
+          lon={coordinates.lon}
+          system={system}
+        />
 
         {/* Link to the code */}
         <Footer />

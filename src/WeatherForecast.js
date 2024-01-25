@@ -20,6 +20,11 @@ export default function WeatherForecast(props) {
   function handleResponse(response) {
     setForecast(response.data.daily);
   }
+
+  function showFahrenheit(temp) {
+    return Math.round((temp * 9) / 5 + 32);
+  }
+
   if (forecast) {
     let days = [
       "Sunday",
@@ -42,11 +47,24 @@ export default function WeatherForecast(props) {
                   condition={dailyForecast.weather[0].main}
                 />
                 <div className="temperature">
-                  <span className="max">{Math.round(dailyForecast.temp.max)}°</span> /{" "}
-                  <span className="min">{Math.round(dailyForecast.temp.min)}°</span>
+                  <span className="max">
+                    {props.system === "celsius"
+                      ? Math.round(dailyForecast.temp.max)
+                      : showFahrenheit(dailyForecast.temp.max)}
+                    °
+                  </span>{" "}
+                  /{" "}
+                  <span className="min">
+                    {props.system === "celsius"
+                      ? Math.round(dailyForecast.temp.min)
+                      : showFahrenheit(dailyForecast.temp.min)}
+                    °
+                  </span>
                 </div>
                 <hr />
-                <h3 className="day_name">{days[(new Date(dailyForecast.dt * 1000)).getDay()]}</h3>
+                <h3 className="day_name">
+                  {days[new Date(dailyForecast.dt * 1000).getDay()]}
+                </h3>
               </div>
             );
           }
@@ -55,5 +73,7 @@ export default function WeatherForecast(props) {
         })}
       </div>
     );
-  } else {return "";}
+  } else {
+    return "";
+  }
 }
