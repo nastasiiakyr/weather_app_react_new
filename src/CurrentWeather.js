@@ -71,11 +71,11 @@ export default function CurrentWeather(props) {
             <div className="weather_type_text">
               <h3>
                 Sky:
-                <span id="weather_condition">{curWeatherData.condition}</span>
+                <span>{curWeatherData.condition}</span>
               </h3>
               <h3>
                 Wind:
-                <span id="wind_speed">
+                <span>
                   {Math.round(curWeatherData.wind * 10) / 10}
                 </span>
                 km/h

@@ -8,9 +8,11 @@ export default function WeatherForecast(props) {
   let [forecast, setForecast] = useState(null);
 
   const fetchData = useCallback(async () => {
-    const apiKeyWeather = "8cd9be374c7c96c39a9fe73f4bf2f055";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&appid=${apiKeyWeather}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    if (props.lat !== null && props.lon !== null) {
+      const apiKeyWeather = "8cd9be374c7c96c39a9fe73f4bf2f055";
+      const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&appid=${apiKeyWeather}&units=metric`;
+      axios.get(apiUrl).then(handleResponse);
+    }
   }, [props]);
 
   useEffect(() => {

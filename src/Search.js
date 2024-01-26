@@ -17,7 +17,7 @@ export default function Search({ searchNewCity }) {
   }
 
   return (
-    <form className="Search" id="search_form" onSubmit={handleSearch}>
+    <form className="Search" onSubmit={handleSearch}>
       <svg
         width="12"
         height="12"
