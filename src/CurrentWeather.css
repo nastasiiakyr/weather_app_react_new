@@ -139,3 +139,23 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 576px) {
+  .CurrentWeather {
+    flex-wrap: wrap;
+    height: auto !important;
+  }
+
+  .CurrentWeather .current_city_date {
+    width: 100%;
+  }
+
+  .CurrentWeather .current_temperature {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .CurrentWeather .cur_temp_number {
+    font-size: 56px;
+  }
+}
